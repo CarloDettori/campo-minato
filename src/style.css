@@ -1,4 +1,34 @@
 body {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    margin: 30px
+    background-color: #292929;
+    color: #fcfcfc
+}
+
+#grid-wrapper {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #292929;
+}
+
+.row {
+    display: flex;
+    width: auto;
+}
+
+.box {
+    display: flex;
+    border: 1px solid #292929;
+    margin: 0;
+    width: 100px;
+    height: 100px;
+    background-color: #757575;
+    background-size: cover;
+}
+
+.n {
+    font-weight: bolder;
+    margin: auto;
+    font-size: 170%;
+    color: #292929;
 }
