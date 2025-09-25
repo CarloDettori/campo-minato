@@ -1,17 +1,23 @@
 import gridGenerator from "../propedeutici/ex-01/gridgenerator.js";
-
+import scoreCounter from "../propedeutici/ex-02/scoreCounter.js"
 document.getElementById('app').innerHTML = `
     <section>
         <h1>Campo Minato</h1>
-        <div id="game-board">${gridGenerator(7)}
+        <div style='display: flex; gap: 30px'> 
+        <div id="game-board">${gridGenerator(10)}</div>
+        <div id="score">
+        
         </div>
-        <div id="score"></div>
+        
+        </div>
+        <button style='margin-top: 30px'type='button' onClick='()=>gridGenerator()'>rigioca</button>
     </section>
 `;
 
+let score = 0
 const difficulty = 7;
 const minedBoxes = []
-
+scoreCounter(score)
 while (minedBoxes.length <= 15) {
 
     let x = Math.floor((Math.random() * (difficulty * difficulty) + 1));
@@ -21,7 +27,7 @@ while (minedBoxes.length <= 15) {
 }
 
 
-minedBoxes.forEach(minedBox => document.getElementById("mine-container-" + minedBox).innerHTML = `<img id='mine-${minedBox}' class='mine' style='padding: 20px' src='./assets/mine.png' alt='mine'>`)
+minedBoxes.forEach(minedBox => document.getElementById("mine-container-" + minedBox).innerHTML = `<img id='mine-${minedBox}' class='mine' src='./assets/mine.png' alt='mine'>`)
 
 document.addEventListener("click", (event) => {
     if (event.target.classList.contains("cover")) {
@@ -33,6 +39,8 @@ document.addEventListener("click", (event) => {
         // Se la box NON contiene una mina, mostra il numero di mine vicine
         const mineContainer = document.getElementById(`mine-container-${boxNum}`);
         if (!mineContainer.querySelector(".mine")) {
+            score++
+            scoreCounter(score)
             const row = Math.ceil(boxNum / difficulty);
             const col = ((boxNum - 1) % difficulty) + 1;
 
@@ -51,7 +59,7 @@ document.addEventListener("click", (event) => {
 
             const mineCount = adjacent.filter(n => minedBoxes.includes(n)).length;
             mineContainer.textContent = mineCount > 0 ? mineCount : "";
-        }
+        } else { console.log("hai perso") }
     }
 })
 

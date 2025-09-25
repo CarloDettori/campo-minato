@@ -23,7 +23,7 @@ export default function gridGenerator(difficulty) {
         rowNumber++
     }
 
-    grid = "<div id='grid-wrapper'>" + grid + "</div>"
+    grid = "<div style='display: flex; flex-direction: column; border: 30px solid #bababa;'><div style ='border: 1px solid #292929'>" + grid + "</div></div>"
 
 
     return grid;

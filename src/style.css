@@ -1,19 +1,14 @@
 body {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     background-color: #292929;
-    color: #fcfcfc
+    color: #fcfcfc;
+    padding: 30px
 }
 
-#game-boad {
-    display: block;
-}
-
-#grid-wrapper {
-    padding: 10px;
-    display: flex;
-    flex-direction: column;
-    border: 1px solid #292929;
-    margin: 0 auto
+#game-board {
+    padding: 30px;
+    background-image: url(../assets/cover.png);
+    background-size: contain;
 }
 
 .row {
@@ -24,14 +19,14 @@ body {
     display: flex;
     border: 1px solid #292929;
     margin: 0;
-    width: 100px;
-    height: 100px;
+    width: 70px;
+    height: 70px;
     background-color: #757575;
     background-size: cover;
 }
 
 .cover {
-    width: 100px
+    width: 70px
 }
 
 .mine-container {
@@ -42,5 +37,11 @@ body {
 }
 
 .mine {
-    max-width: 60px
+    margin-top: 10px;
+    width: 50px
+}
+
+#score-board {
+    width: 100px;
+    height: 100px;
 }
