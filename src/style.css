@@ -4,16 +4,20 @@ body {
     color: #fcfcfc
 }
 
+#game-boad {
+    display: block;
+}
+
 #grid-wrapper {
     padding: 10px;
     display: flex;
     flex-direction: column;
     border: 1px solid #292929;
+    margin: 0 auto
 }
 
 .row {
     display: flex;
-    width: auto;
 }
 
 .box {
@@ -26,9 +30,17 @@ body {
     background-size: cover;
 }
 
-.n {
-    font-weight: bolder;
-    margin: auto;
-    font-size: 170%;
-    color: #292929;
+.cover {
+    width: 100px
+}
+
+.mine-container {
+    color: #fcfcfc;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 250%;
+    margin: auto
+}
+
+.mine {
+    max-width: 60px
 }

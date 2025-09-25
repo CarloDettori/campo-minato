@@ -3,7 +3,6 @@ export default function gridGenerator(difficulty) {
     let grid = ""
     let boxNumber = 1
     let rowNumber = 1
-    let minedBoxes = []
 
     //generatore colonne
     for (let i = 1; i <= difficulty; i++) {
@@ -12,8 +11,10 @@ export default function gridGenerator(difficulty) {
 
         let row = ""
         for (let i = 1; i <= difficulty; i++) {
-            row = row + `<div id='box-${boxNumber}' class='box'>
-            <img src='./assets/cover.png' alt='mine'>
+            row = row + `
+            <div style='position: relative' id='box-${boxNumber}' class='box'>
+                <div id='mine-container-${boxNumber}' class='mine-container'> </div>
+                <img id='cover-${boxNumber}' class='cover' style='position: absolute; cursor:pointer'  src='./assets/cover.png' alt='mine'>
             </div>`
             boxNumber++
         }
