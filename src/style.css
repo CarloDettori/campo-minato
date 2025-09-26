@@ -5,43 +5,16 @@ body {
     padding: 30px
 }
 
-#game-board {
-    padding: 30px;
-    background-image: url(../assets/cover.png);
-    background-size: contain;
-}
-
-.row {
-    display: flex;
-}
-
-.box {
-    display: flex;
-    border: 1px solid #292929;
-    margin: 0;
-    width: 70px;
-    height: 70px;
-    background-color: #757575;
-    background-size: cover;
-}
-
+.box,
 .cover {
-    width: 70px
+    height: 70px;
 }
 
 .mine-container {
-    color: #fcfcfc;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: 250%;
-    margin: auto
 }
 
 .mine {
     margin-top: 10px;
     width: 50px
-}
-
-#score-board {
-    width: 100px;
-    height: 100px;
 }
