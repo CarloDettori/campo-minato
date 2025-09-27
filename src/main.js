@@ -119,6 +119,23 @@ function startGame() {
         }
     })
 
+    const frame = document.getElementById("frame")
+
+    frame.addEventListener("contextmenu", function (event) {
+        event.preventDefault();
+    });
+
+    document.getElementById("game-board").addEventListener("mousedown", function (event) {
+        if (event.button === 2 && event.target.classList.contains("cover")) {
+
+            if (event.target.src.includes('cover.png')) {
+                event.target.src = './assets/flag.png';
+            } else if (event.target.src.includes('flag.png')) {
+                event.target.src = './assets/cover.png';
+            }
+        }
+    });
+
 
 
 
