@@ -2,10 +2,11 @@ import gridGenerator from "../propedeutici/ex-01/gridgenerator.js";
 import scoreCounter from "../propedeutici/ex-02/scoreCounter.js"
 
 let difficulty = 7;
-
+let isGameOver = false;
 
 
 function startGame() {
+    isGameOver = false;
 
     document.getElementById("play-grownd").innerHTML = `
         <div id="game-board" style=' background-image: url(../assets/cover.png); background-size: cover; aspect-ratio: 1/1; padding: 30px;' ></div>
@@ -29,6 +30,8 @@ function startGame() {
     minedBoxes.forEach(minedBox => document.getElementById("mine-container-" + minedBox).innerHTML = `<img id='mine-${minedBox}' class='mine' src='./assets/mine.png' alt='mine'>`)
 
     document.addEventListener("click", (event) => {
+        if (isGameOver) return;
+
         if (event.target.classList.contains("cover")) {
             event.target.style.display = "none";
 
@@ -62,12 +65,22 @@ function startGame() {
                 health--;
                 scoreCounter(score, health);
                 if (health === 0) {
-                    document.getElementById("frame").innerHTML = `<h1> GAME OVER </h1>
+                    isGameOver = true;
+                    document.getElementById("health-bar").innerHTML = `<div><h1> GAME OVER </h1>
     <button type='button' onClick='startGame()'>RETRY</button>
+    </div>
     `
+                    minedBoxes.forEach(minedBox => {
+                        const cover = document.getElementById(`cover-${minedBox}`);
+                        if (cover) {
+                            cover.style.display = "none";
+                        }
+                    });
                 } else if (score === difficulty * difficulty - 16) {
-                    document.getElementById("frame").innerHTML = `<h1> VICTORY </h1>
+                    isGameOver = true;
+                    document.getElementById("health-bar").innerHTML = `<div><h1> VICTORY! </h1>
     <button type='button' onClick='startGame()'>PLAY AGAIN</button>
+    </div>
     `
                 }
 
