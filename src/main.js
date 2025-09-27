@@ -67,6 +67,15 @@ function startGame() {
                 if (health === 0) {
                     isGameOver = true;
                     document.getElementById("health-bar").innerHTML = `<div><h1> GAME OVER </h1>
+                    <div>
+            <label for="cars">Choose a difficulty</label>
+
+            <select style='margin-bottom: 20px'; name="difficulty" id="difficulty" onChange='difficulty = select.value'>
+                <option value=10>Easy</option>
+                <option value=9>Medium</option>
+                <option selected value=7>Hard</option>
+            </select>
+        </div>
     <button type='button' onClick='startGame()'>RETRY</button>
     </div>
     `
@@ -76,12 +85,34 @@ function startGame() {
                             cover.style.display = "none";
                         }
                     });
+                    document.getElementById("difficulty").addEventListener("change", function (e) {
+                        difficulty = parseInt(e.target.value);
+                    });
+
                 } else if (score === difficulty * difficulty - 16) {
                     isGameOver = true;
                     document.getElementById("health-bar").innerHTML = `<div><h1> VICTORY! </h1>
+                    <div>
+            <label for="cars">Scegli una difficoltà</label>
+
+            <select name="difficulty" id="difficulty" onChange='difficulty = select.value'>
+                <option value=10>Easy</option>
+                <option value=9>Medium</option>
+                <option selected value=7>Hard</option>
+            </select>
+        </div>
     <button type='button' onClick='startGame()'>PLAY AGAIN</button>
     </div>
     `
+                    minedBoxes.forEach(minedBox => {
+                        const cover = document.getElementById(`cover-${minedBox}`);
+                        if (cover) {
+                            cover.style.display = "none";
+                        }
+                    });
+                    document.getElementById("difficulty").addEventListener("change", function (e) {
+                        difficulty = parseInt(e.target.value);
+                    });
                 }
 
             }
@@ -100,11 +131,11 @@ window.startGame = startGame;
 document.getElementById('app').innerHTML = `
     <section>
 
-        <h1>CAMPO MINATO</h1>
+        <h1>MINESWEPER</h1>
 
         <div id='play-grownd' style='display: flex; gap: 30px; margin: 30px'> 
         <div>
-            <label for="cars">Scegli una difficoltà</label>
+            <label for="cars">Choose a difficulty</label>
 
             <select name="difficulty" id="difficulty" onChange='difficulty = select.value'>
                 <option value=10>Facile</option>
