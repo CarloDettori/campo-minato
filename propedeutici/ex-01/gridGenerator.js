@@ -14,7 +14,7 @@ export default function gridGenerator(difficulty) {
             row = row + `
             <div style='display: flex; border: 1px solid #292929; margin: 0; width: 70px; position: relative; background-color: #757575;background-size: cover' id='box-${boxNumber}' class='box'>
             <div style="color: #fcfcfc; font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; margin: auto" id='mine-container-${boxNumber}' class='mine-container'> </div>
-            <img id='cover-${boxNumber}' class='cover' style='position: absolute; cursor:pointer'  src='./assets/cover.png' alt='mine'>
+            <img id='cover-${boxNumber}' class='cover' style='position: absolute; cursor:pointer'  src='./assets/cover.png' alt='cover'>
             </div>`
             boxNumber++
         }
