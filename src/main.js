@@ -138,9 +138,9 @@ document.getElementById('app').innerHTML = `
             <label for="cars">Choose a difficulty</label>
 
             <select name="difficulty" id="difficulty" onChange='difficulty = select.value'>
-                <option value=10>Facile</option>
-                <option value=9>Medio</option>
-                <option selected value=7>Difficile</option>
+                <option value=10>Easy</option>
+                <option value=9>Medium</option>
+                <option selected value=7>Hard</option>
             </select>
         </div>
         <button type='button' onClick='startGame()'>START</button>
