@@ -122,10 +122,12 @@ function startGame() {
     const frame = document.getElementById("frame")
 
     frame.addEventListener("contextmenu", function (event) {
+        if (isGameOver) return;
         event.preventDefault();
     });
 
     document.getElementById("game-board").addEventListener("mousedown", function (event) {
+        if (isGameOver) return;
         if (event.button === 2 && event.target.classList.contains("cover")) {
 
             if (event.target.src.includes('cover.png')) {
